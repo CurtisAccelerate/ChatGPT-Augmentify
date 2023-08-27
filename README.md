@@ -37,10 +37,10 @@ Cuation: System is still extremely tricky and bug prone.
 1. Add web scraping capability for general research assistant.
 2. Add document store / stacks for research.
 3. Create capability to ask an "out of context" AI queries for multi-modal like ChatGPT, Bard, llama code,
-# etc for error correction
-# 4. Add new capabilities like voice
-# 5. Add streaming and recording for automatic creation local markdowns
-# 6. Add project creation automation for files system creation
+etc for error correction
+4. Add new capabilities like voice
+5. Add streaming and recording for automatic creation local markdowns
+6. Add project creation automation for files system creation
 
 ### System Architecture
 
