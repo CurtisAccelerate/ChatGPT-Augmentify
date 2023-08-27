@@ -42,7 +42,7 @@ Cuation: System is still extremely tricky and bug prone.
 # 5. Add streaming and recording for automatic creation local markdowns
 # 6. Add project creation automation for files system creation
 
-# System Architecture
+### System Architecture
 
 1. System consist of Tamper Monkey JS. Must install the JS into TamperMonkey.
 2. A Flask Python server
@@ -50,20 +50,20 @@ Cuation: System is still extremely tricky and bug prone.
 via template.
 4. Work is piped to a ipynb for the user but not executed.
 
-# Quickstart
+### Quickstart
 
 1. Install the TamperMonkey script.
 2. Start Python Flask Server
 3. ChatGPT will be able to run code on client side by emitting a codeblock with # pyclient comment. It must be a code block. Multiple code blocks can be processed.
 4. Work.py file has the Mecha Corp extensions and also acts as a work file where Python can be piped.
 
-Known Issues / Help
+### Known Issues / Help
 1. The button regenerate/continue button must be visible for the injection to work.
 2. The server restart / reload code likely is not working properly. 
 3. You will likely need to keep work.py open in Visual Studio to triage.
 4. It is intended to be used with Code Interpreter model. Prompting to get it to understand the new capabilities is not always easy. Prompts will be coming soon.
 
-# Background
+### Background
 
 Originally the intention was to use Jupyter notebook for the augmentated capabilities. It was always tantalizing close to working.
 But, I ran into too many problems with slow execution or other problems so the augmentated capabilities was shifted to Python dynamic file. See the
