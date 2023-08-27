@@ -19,7 +19,7 @@ Cuation: System is still extremely tricky and bug prone.
 
 ### Why Client Side Code?
  
- 1. Extend its's capabilities by adding persistent capabilities
+ 1. Extend its's capabilities by adding persistence
  2. Accesss to any and all Python modules / functions
  3. Create more efficient work flows. Example, it can create the entire file system for a project vs. copy/paste. 
  4. Ability to parse local data / large data without having to zip it.
