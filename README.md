@@ -17,26 +17,26 @@ Caution: The Javascript code monitors your chat to send to your local running ho
 Cuation: System is still extremely tricky and bug prone. 
 ***
 
-# ## Why Client Side Code?
-# 
-# 1. Extend its's capabilities by adding persistent capabilities
-# 2. Accesss to any and all Python modules / functions
-# 3. Create more efficient work flows. Example, it can create the entire file system for a project vs. copy/paste. 
-# 4. Ability to parse local data / large data without having to zip it.
-# 5. Capture workflow better and other many other benefits.
-# 6. It can act more as a conscious etension / OS extension. Some really transformative potential.
+### Why Client Side Code?
+ 
+ 1. Extend its's capabilities by adding persistent capabilities
+ 2. Accesss to any and all Python modules / functions
+ 3. Create more efficient work flows. Example, it can create the entire file system for a project vs. copy/paste. 
+ 4. Ability to parse local data / large data without having to zip it.
+ 5. Capture workflow better and other many other benefits.
+ 6. It can act more as a conscious etension / OS extension. Some really transformative potential.
 
-# # Mecha Corp Capabilities:
-# 1. Augmented engine structure for creating and getting augmented capabilities in a standardized way vs temporary work functions.
-# 2. Task manage / to-do lists for state tracking
-# 3. Logging capability for large file processing and "memory tracking"
-# 4. Preview file capabilities 
-# 5. Prompt / Instruction Chains
+### Mecha Corp Capabilities:
+1. Augmented engine structure for creating and getting augmented capabilities in a standardized way vs temporary work functions.
+2. Task manage / to-do lists for state tracking
+3. Logging capability for large file processing and "memory tracking"
+4. Preview file capabilities 
+5. Prompt / Instruction Chains
 
-# ## To Do Add More Capabiltiies
-# 1. Add web scraping capability for general research assistant.
-# 2. Add document store / stacks for research.
-# 3. Create capability to ask an "out of context" AI queries for multi-modal like ChatGPT, Bard, llama code,
+### To Do Add More Capabiltiies
+1. Add web scraping capability for general research assistant.
+2. Add document store / stacks for research.
+3. Create capability to ask an "out of context" AI queries for multi-modal like ChatGPT, Bard, llama code,
 # etc for error correction
 # 4. Add new capabilities like voice
 # 5. Add streaming and recording for automatic creation local markdowns
