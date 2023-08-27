@@ -1,0 +1,10 @@
+
+Name: ConvertCode
+Objective: Convert code from one language to another
+Prompt: Read the code carefully. Do not attempt to convert line by line but focus on the most salient and important points for reconstruction.
+Instructions:
+    1. Read the C# file in chunks.
+    2. Log each chunk.
+    3. Summarize each chunk.
+    4. Convert chunk from C# to Python.
+    5. Log the Python conversion.

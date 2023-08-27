@@ -1,0 +1,110 @@
+// ==UserScript==
+// @name         ChatGPT Client Monitor v1.0
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        https://chat.openai.com/*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=openai.com
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    let isObserving = false;
+
+    function observeButton() {
+        if (isObserving) {
+            return; // Return early if already observing
+        }
+
+        console.log('Starting to observe button state changes...');
+
+        const findButton = () => Array.from(document.querySelectorAll('button.btn-neutral'))
+            .find(button => ["Stop generating", "Regenerate", "Continue"]
+                .some(text => button.textContent.includes(text)));
+
+        const button = findButton();
+
+        if (!button) {
+            console.log('Button not found. Retrying...');
+            setTimeout(observeButton, 250);
+            return;
+        } else {
+            console.log('Button found');
+        }
+
+        isObserving = true;
+
+        let prevButtonText = "";
+
+        const observer = new MutationObserver(async () => {
+            const button = findButton();
+            if (!button) return;
+
+            const buttonText = button.textContent.trim();
+
+            if (buttonText !== 'Stop generating' && prevButtonText === 'Stop generating') {
+                console.log('Response has stopped generating, extracting code blocks...');
+                const codeBlocks = extractCodeBlocksFromHtml(document.body.innerHTML);
+                const pyclientBlocks = filterPyclientBlocks(codeBlocks);
+                console.log('Extracted pyclient code blocks:', pyclientBlocks);
+                if (pyclientBlocks.length > 0) {
+                    const combinedCode = pyclientBlocks.join('\n\n');
+                    const result = await sendPythonCodeToServer(combinedCode);
+                    const textarea = document.querySelector('textarea');
+                    textarea.value = `--- Results ---\n${result}\n---User Feedback---`;
+                    const event = new Event('input', { bubbles: true });
+                    textarea.dispatchEvent(event);
+                }
+            }
+
+            prevButtonText = buttonText;
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true });
+    }
+
+    function extractCodeBlocksFromHtml(htmlContent) {
+        let parser = new DOMParser();
+        let doc = parser.parseFromString(htmlContent, 'text/html');
+
+        let responseElements = doc.querySelectorAll('div.relative.flex.gap-1 div.flex.flex-grow.flex-col.gap-3');
+        let lastResponseElement = responseElements[responseElements.length - 1] || null;
+
+        let codeBlocks = [];
+        if (lastResponseElement) {
+            let preTags = lastResponseElement.querySelectorAll('pre');
+            preTags.forEach(preTag => {
+                let codeTag = preTag.querySelector('code');
+                if (codeTag) {
+                    codeBlocks.push(codeTag.textContent);
+                }
+            });
+        }
+
+        return codeBlocks;
+    }
+
+    function filterPyclientBlocks(codeBlocks) {
+        return codeBlocks.filter(block => block.includes('# pyclient'));
+    }
+
+    async function sendPythonCodeToServer(pythonCode) {
+        const response = await fetch('http://localhost:5000/execute', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ code: pythonCode }),
+        });
+        const result = await response.json();
+        return result.result || result.error;
+    }
+
+    window.addEventListener('load', () => {
+        observeButton();
+    });
+
+})();
