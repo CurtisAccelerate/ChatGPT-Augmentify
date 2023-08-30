@@ -1,4 +1,4 @@
-# ChatGPTServer by Curtis White 
+# ChatGPT Client Side Augmentation Engine by Curtis White 
 This is a ChatGPT to API and ChatGPT Augmentation System. This enables a few things primarily:
 
 1. You can use your ChatGPT as a local API. This is for ChatGPT power users and not for automated / bot activity. 
