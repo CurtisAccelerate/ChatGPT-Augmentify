@@ -70,7 +70,7 @@ But, I ran into too many problems with slow execution or other problems so the a
 work and template.
 
 ### Security
-Because we processes server-side tags to run code, it is theoretically possible a poisioned URL to execute code if accessed via ChatGPT. This is a remote risk. However, for stronger security, you canchange the # pyclient tag to a unique identifier.
+Because we processes server-side tags to run code, it is theoretically possible a poisioned URL to execute code if accessed via ChatGPT. This is a remote risk. However, for stronger security, you can change the # pyclient tag to a unique identifier.
 
 Special thanks & See Also Similar Project:
 https://github.com/zsodur/chatgpt-api-by-browser-script 
